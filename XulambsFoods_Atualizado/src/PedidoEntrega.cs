@@ -19,6 +19,13 @@ namespace XulambsFoods_Atualizado
             if (distancia < 0.1) distancia = 0.1;
             _distanciaEntrega = distancia;
         }
+
+        //to do
+        /*public double ValorFinal()
+        {
+
+        }
+
         protected override bool PodeAdicionar()
         {
             return _aberto && (_quantComidas < MaxEntrega);
@@ -50,5 +57,6 @@ namespace XulambsFoods_Atualizado
             relat.AppendLine("=============================");
             return relat.ToString();
         }
+     */
     }
 }

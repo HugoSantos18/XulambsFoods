@@ -48,9 +48,13 @@ namespace XulambsFoods_Atualizado
 
         #region métodos de negócio
 
-        protected abstract bool PodeAdicionar();
-        protected abstract double ValorTaxa();
-        public abstract string Relatorio();
+       //to do
+        /// <summary>
+        /// Calcula o preço a ser pago pelo pedido (no momento, a soma dos preços de todas as pizzas contidas no pedido)
+        /// </summary>
+        /// <returns>Double com o valor a ser pago pelo pedido(> 0)</returns>
+       /* public abstract double ValorFinal();
+        */
 
         protected double ValorItens()
         {
@@ -61,17 +65,22 @@ namespace XulambsFoods_Atualizado
             }
             return preco;
         }
+       
+        public bool PodeAdicionar(int quantos)
+        {
+            return (quantos > 0 && quantos + _quantComidas <= _maxComidas);
+        }
+        
         /// <summary>
         /// Adiciona uma comida ao pedido, se for possível. Caso não seja, a operação é ignorada.Retorna a quantidade de comidas do pedido após a execução. 
         /// </summary>
         /// <param name="comida">Pizza a ser adicionada</param>
         /// <returns>A quantidade de comida do pedido após a execução.</returns>
-        public int Adicionar(Comida comida)
+        public int Adicionar(int quantos)
         {
-            if (PodeAdicionar())
+            if (PodeAdicionar(quantos))
             {
-                _comidas[_quantComidas] = comida;
-                _quantComidas++;
+                _quantComidas += quantos;
             }
             return _quantComidas;
         }
@@ -83,15 +92,6 @@ namespace XulambsFoods_Atualizado
         {
             if (_quantComidas > 0)
                 _aberto = false;
-        }
-
-        /// <summary>
-        /// Calcula o preço a ser pago pelo pedido (no momento, a soma dos preços de todas as pizzas contidas no pedido)
-        /// </summary>
-        /// <returns>Double com o valor a ser pago pelo pedido(> 0)</returns>
-        public double PrecoAPagar()
-        {
-            return ValorItens() + ValorTaxa();
         }
         #endregion
     }

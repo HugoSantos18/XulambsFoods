@@ -18,8 +18,14 @@ namespace XulambsFoods_Atualizado
         { }
 
 
+        //to do
+        /*public double ValorFinal()
+        {
 
-        protected override double ValorTaxa()
+        }
+        */
+
+        public double ValorTaxa()
         {
             return ValorItens() * TaxaServico;
         }
@@ -28,11 +34,12 @@ namespace XulambsFoods_Atualizado
         /// Verifica se uma pizza pode ser adicionada ao pedido, ou seja, se o pedido está aberto e há espaço na memória.
         /// </summary>
         /// <returns>TRUE se puder adicionar, FALSE caso contrário</returns>
-        protected override bool PodeAdicionar()
+        public bool PodeAdicionar()
         {
-            return (_aberto);
+            return _aberto;
         }
 
+        //to do
         /// <summary>
         /// Cria um relatório para o pedido, contendo seu número, sua data(DD/MM/AAAA), detalhamento de cada pizza e o preço final a ser pago.
         /// </summary>
@@ -45,6 +52,7 @@ namespace XulambsFoods_Atualizado
         ///
 	    ///TOTAL A PAGAR: R$ VALOR
 	    ///</pre></returns>
+      /*
         public override string Relatorio()
         {
             StringBuilder relat = new StringBuilder("XULAMBS PIZZA - Pedido ");
@@ -56,9 +64,10 @@ namespace XulambsFoods_Atualizado
                 relat.AppendLine($"{(i + 1):D2} - {_comidas[i].NotaDeCompra()}");
             }
             relat.AppendLine($"\nTAXA SERVIÇO : {ValorTaxa():C2}");
-            relat.AppendLine($"TOTAL A PAGAR: {PrecoAPagar():C2}");
+            relat.AppendLine($"TOTAL A PAGAR: {ValorFinal():C2}");
             relat.AppendLine("=============================");
             return relat.ToString();
         }
+      */
     }
 }

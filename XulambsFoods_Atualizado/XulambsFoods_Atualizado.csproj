@@ -43,18 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comida.cs" />
-    <Compile Include="Pedido.cs" />
-    <Compile Include="PedidoEntrega.cs" />
-    <Compile Include="PedidoLocal.cs" />
-    <Compile Include="PedidoXulambs.cs" />
-    <Compile Include="Pizza.cs" />
-    <Compile Include="Sanduiche.cs" />
-    <Compile Include="XulambsFoods.cs" />
+    <Compile Include="interface\IPedido.cs" />
+    <Compile Include="src\Comida.cs" />
+    <Compile Include="src\Pedido.cs" />
+    <Compile Include="src\PedidoEntrega.cs" />
+    <Compile Include="src\PedidoLocal.cs" />
+    <Compile Include="src\PedidoXulambs.cs" />
+    <Compile Include="src\Pizza.cs" />
+    <Compile Include="src\Sanduiche.cs" />
+    <Compile Include="src\XulambsFoods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

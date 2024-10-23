@@ -48,13 +48,11 @@ namespace XulambsFoods_Atualizado
 
         #region métodos de negócio
 
-       //to do
         /// <summary>
         /// Calcula o preço a ser pago pelo pedido (no momento, a soma dos preços de todas as pizzas contidas no pedido)
         /// </summary>
         /// <returns>Double com o valor a ser pago pelo pedido(> 0)</returns>
-       /* public abstract double ValorFinal();
-        */
+        public abstract double ValorFinal();
 
         protected double ValorItens()
         {

@@ -18,12 +18,10 @@ namespace XulambsFoods_Atualizado
         { }
 
 
-        //to do
-        /*public double ValorFinal()
+        public double ValorFinal()
         {
 
         }
-        */
 
         public double ValorTaxa()
         {
@@ -39,7 +37,6 @@ namespace XulambsFoods_Atualizado
             return _aberto;
         }
 
-        //to do
         /// <summary>
         /// Cria um relatório para o pedido, contendo seu número, sua data(DD/MM/AAAA), detalhamento de cada pizza e o preço final a ser pago.
         /// </summary>
@@ -52,7 +49,7 @@ namespace XulambsFoods_Atualizado
         ///
 	    ///TOTAL A PAGAR: R$ VALOR
 	    ///</pre></returns>
-      /*
+      
         public override string Relatorio()
         {
             StringBuilder relat = new StringBuilder("XULAMBS PIZZA - Pedido ");
@@ -68,6 +65,5 @@ namespace XulambsFoods_Atualizado
             relat.AppendLine("=============================");
             return relat.ToString();
         }
-      */
     }
 }

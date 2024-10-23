@@ -20,10 +20,9 @@ namespace XulambsFoods_Atualizado
             _distanciaEntrega = distancia;
         }
 
-        //to do
-        /*public double ValorFinal()
+        public double ValorFinal()
         {
-
+            return 0;
         }
 
         protected override bool PodeAdicionar()
@@ -53,10 +52,9 @@ namespace XulambsFoods_Atualizado
                 relat.AppendLine($"{(i + 1):D2} - {_comidas[i].NotaDeCompra()}");
             }
             relat.AppendLine($"\nTAXA ENTREGA : {ValorTaxa():C2}");
-            relat.AppendLine($"TOTAL A PAGAR: {PrecoAPagar():C2}");
+            relat.AppendLine($"TOTAL A PAGAR: {ValorFinal():C2}");
             relat.AppendLine("=============================");
             return relat.ToString();
         }
-     */
     }
 }

@@ -28,11 +28,13 @@ namespace XulambsFoods_Atualizado
         #region atributos
         private int _idPedido;
         private DateTime _data;
-        private Comida [] _comidas;
+        private List <Comida>  _comidas;
         private int _quantcomidas;
         private double _distanciaEntrega;
         private bool _paraEntrega;
         private bool _aberto;
+        private IPedido categoria;
+
         #endregion
 
         #region construtores
@@ -48,7 +50,7 @@ namespace XulambsFoods_Atualizado
         {
             _quantcomidas = 0;
             _aberto = true;
-            _comidas = new Comida[Maxcomidas];
+            _comidas = new List<Comida>();
             _data = DateTime.Now;
             _idPedido = ++_ultimoPedido;
             _paraEntrega = paraEntrega;
@@ -92,6 +94,7 @@ namespace XulambsFoods_Atualizado
             }
             return preco;
         }
+
         /// <summary>
         /// Adiciona uma pizza ao pedido, se for possível. Caso não seja, a operação é ignorada.Retorna a quantidade de comidas do pedido após a execução. 
         /// </summary>
@@ -139,19 +142,15 @@ namespace XulambsFoods_Atualizado
 	    ///</pre></returns>
         public string Relatorio()
         {
-            StringBuilder relat = new StringBuilder("XULAMBS PIZZA - Pedido ");
+            StringBuilder relat = new StringBuilder($"XULAMBS PIZZA - Pedido {categoria.ToString()} ");
             relat.Append($"{_idPedido:D2} - {_data.ToShortDateString()}");
-            if (_paraEntrega)
-                relat.AppendLine(" - PARA ENTREGA");
-            else
-                relat.AppendLine(" - LOCAL");
             relat.AppendLine("=============================");
 
             for (int i = 0; i < _quantcomidas; i++)
             {
                 relat.AppendLine($"{(i + 1):D2} - {_comidas[i].NotaDeCompra()}");
             }
-            relat.AppendLine($"\nTAXA: {ValorTaxa():C2}");
+            relat.AppendLine($"VALOR TAXA: {categoria.Relatorio()}");
             relat.AppendLine($"\nTOTAL A PAGAR: {PrecoAPagar():C2}");
             relat.AppendLine("=============================");
             return relat.ToString();

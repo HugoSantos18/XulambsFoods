@@ -6,25 +6,29 @@ using System.Threading.Tasks;
 
 namespace XulambsFoods_Atualizado
 {
-    internal class PedidoEntrega : Pedido
+    internal class PedidoEntrega : IPedido
     {
         private const int MaxEntrega = 6;
         private readonly double[] TaxasEntrega = { 0, 5, 8 };
         private readonly double[] DistanciasEntrega = { 4, 8, double.MaxValue };
-
+        private int _quantComidas;
+        private bool _aberto;
+        private List<Comida> _comidas;
         private double _distanciaEntrega;
 
-        public PedidoEntrega(double distancia) : base(MaxEntrega)
+        public PedidoEntrega(double distancia)
         {
             if (distancia < 0.1) distancia = 0.1;
             _distanciaEntrega = distancia;
+            _aberto = true;
+            _comidas = new List<Comida>();
         }
-        protected override bool PodeAdicionar()
+        public bool PodeAdicionar()
         {
             return _aberto && (_quantComidas < MaxEntrega);
         }
 
-        protected override double ValorTaxa()
+        public double ValorTaxa()
         {
             double taxa = 0d;
             for (int i = DistanciasEntrega.Length - 1; i >= 0; i--)
@@ -35,20 +39,16 @@ namespace XulambsFoods_Atualizado
             return taxa;
         }
 
-        public override string Relatorio()
+       
+        public string Relatorio()
         {
-            StringBuilder relat = new StringBuilder("XULAMBS PIZZA - Pedido ");
-            relat.AppendLine($"{_idPedido:D2} - {_data.ToShortDateString()} - ENTREGA");
+            StringBuilder relat = new StringBuilder("XULAMBS PIZZA - Pedido para entrega");
             relat.AppendLine("=============================");
 
-            for (int i = 0; i < _quantComidas; i++)
-            {
-                relat.AppendLine($"{(i + 1):D2} - {_comidas[i].NotaDeCompra()}");
-            }
             relat.AppendLine($"\nTAXA ENTREGA : {ValorTaxa():C2}");
-            relat.AppendLine($"TOTAL A PAGAR: {PrecoAPagar():C2}");
             relat.AppendLine("=============================");
             return relat.ToString();
         }
+  
     }
 }

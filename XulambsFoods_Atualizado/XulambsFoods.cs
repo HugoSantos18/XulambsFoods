@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,6 +9,8 @@ namespace XulambsFoods_Atualizado
 {
     public class XulambsFoods
     {
+        static List<Pedido> _pedidos= new List<Pedido>();
+
         static void Cabecalho()
         {
             Console.Clear();
@@ -77,7 +80,7 @@ namespace XulambsFoods_Atualizado
             {
                 return new Sanduiche(false);
             }
-             
+
             throw new InvalidOperationException("Operação inválida!");
         }
 
@@ -115,7 +118,8 @@ namespace XulambsFoods_Atualizado
             Console.WriteLine("\nPedido para Entrega.");
             Console.Write("Qual a distância da entrega? ");
             dist = double.Parse(Console.ReadLine());
-            return new PedidoEntrega(dist);
+            
+            return new Pedido(dist);
         }
 
         static Pedido AbrirPedido()

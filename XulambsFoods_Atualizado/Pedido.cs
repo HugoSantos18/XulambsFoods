@@ -110,6 +110,15 @@ namespace XulambsFoods_Atualizado
         }
         #endregion
 
+        public double CompareTo(object obj)
+        {
+            throw new NotImplementedException();   
+        }
+
+        public int Equals(object obj)
+        {
+            throw new NotImplementedException();
+        }
 
         public string Relatorio()
         {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Net.Mail;
 using XulambsFoods_Atualizado;
 
 namespace XulambsFoodsTests
@@ -10,7 +11,6 @@ namespace XulambsFoodsTests
         [TestMethod]
         public void PodeAdicionarTest()
         {
-         
         
         }
     }

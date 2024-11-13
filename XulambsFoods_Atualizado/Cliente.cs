@@ -31,6 +31,5 @@ namespace XulambsFoods_Atualizado
             return _cpf;
         }
 
-        
     }
 }

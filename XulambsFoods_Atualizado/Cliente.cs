@@ -13,7 +13,6 @@ namespace XulambsFoods_Atualizado
         private string _cpf;
         private Queue<Pedido> _todosPedidos;
 
-
         public Cliente(string nome, string cpf)
         {
             this._nome = nome;
@@ -31,5 +30,32 @@ namespace XulambsFoods_Atualizado
             return _cpf;
         }
 
+        public int RegistrarPedido(Pedido novo)
+        {
+            _todosPedidos.Enqueue(novo);
+
+            return _todosPedidos.Count();
+        }
+
+        public string RelatorioPedidos()
+        {
+            foreach (Pedido p in _todosPedidos)
+            {
+                return p.Relatorio();
+            }
+
+            return null;
+        }
+
+        public double TotalGasto()
+        {
+            double gasto = 0;
+            foreach (Pedido p in _todosPedidos)
+            {
+                gasto += p.PrecoAPagar();
+            }
+            return gasto;
+        }
+    
     }
 }

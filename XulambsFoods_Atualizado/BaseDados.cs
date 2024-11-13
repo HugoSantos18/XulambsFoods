@@ -8,16 +8,16 @@ namespace XulambsFoods_Atualizado
 {
     class BaseDados<T> where T : IComparable<T>, IEquatable<T>
     {
-        private Dictionary<int, T> _baseDados;
+        private Dictionary<string, T> _baseDados;
 
         public BaseDados()
         {
-            _baseDados = new Dictionary<int, T>();
+            _baseDados = new Dictionary<string, T>();
         }
 
-        public T Add(int id, T dados)
+        public T Add(string nome, T dados)
         {
-            _baseDados.Add(id, dados);
+            _baseDados.Add(nome, dados);
             return dados;
         }
 
@@ -39,8 +39,10 @@ namespace XulambsFoods_Atualizado
             foreach (T dados in _baseDados.Values)
                 if (dados.Equals(dadosAserRemovido))
                 {
-                    _baseDados.Remove(dadosAserRemovido.GetHashCode());
+                    _baseDados.Remove(dadosAserRemovido.ToString());
                 }
         }
+
+
     }
 }
